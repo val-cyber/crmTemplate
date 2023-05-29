@@ -1,3 +1,18 @@
+<?php
+ini_set("display_errors", 1);
+
+ini_set("display_startup_errors", 1);
+
+error_reporting(E_ALL);
+require_once("../Supermarket/config.php");
+
+$data =  new Config ();
+
+$all = $data -> obtainAll();
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -54,6 +69,10 @@
           <i class="bi bi-people"></i>
           <h3 style="margin: 0px;font-weight: 800;">Productos</h3>
         </a>
+        <a href="../FacturaDetalle/facturaDetalle.php" style="display: flex;gap:1px;">
+          <i class="bi bi-people"></i>
+          <h3 style="margin: 0px;font-weight: 800;">Factura Detalle</h3>
+        </a>
         
        
 
@@ -80,7 +99,22 @@
           <tbody class="" id="tabla">
 
             <!-- ///////Llenado DInamico desde la Base de Datos -->
+            <?php
          
+         foreach($all as $key => $val){
+
+         
+         ?>
+        <tr>
+          <td><?php echo $val['id'] ?></td>
+          <td><?php echo $val['nombre'] ?></td>
+          <td><?php echo $val['descripcion'] ?></td>
+          <td><img id="imggg"src="../imgs/<?php echo $val['imagen'] ?>"/></td>
+          
+          <td><a class="btn" href="borrar.php?id=<?= $val['id']?>&req=delete" style="background-color: #D6E8DB ;">Borrar</a></td>
+          <td><a class="btn" href="actualizar.php?id=<?= $val['id']?>" style="background-color: #D6E8DB ;">Editar</a></td>
+        </tr>
+          <?php } ?>
        
 
           </tbody>
@@ -112,33 +146,34 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body" style="background-color: rgb(231, 253, 246);">
-            <form class="col d-flex flex-wrap" method="post">
+            <form class="col d-flex flex-wrap" action="registrar.php" method="post">
               <div class="mb-1 col-12">
-                <label for="nombres" class="form-label">Nombres</label>
+                <label for="nombre" class="form-label">nombre</label>
                 <input 
                   type="text"
-                  id="nombres"
-                  name="nombres"
+                  id="nombre"
+                  name="nombre"
                   class="form-control"  
                 />
               </div>
 
               <div class="mb-1 col-12">
-                <label for="direccion" class="form-label">Direccion</label>
+                <label for="descripcion" class="form-label">descripcion</label>
                 <input 
                   type="text"
-                  id="direccion"
-                  name="direccion"
+                  id="descripcion"
+                  name="descripcion"
                   class="form-control"  
                 />
               </div>
 
               <div class="mb-1 col-12">
-                <label for="logros" class="form-label">Logros</label>
+                <label for="imagen" class="form-label">imagen</label>
                 <input 
-                  type="text"
-                  id="logros"
-                  name="logros"
+                accept="images/*"
+                  type="file"
+                  id="imagen"
+                  name="imagen"
                   class="form-control"  
                  
                 />

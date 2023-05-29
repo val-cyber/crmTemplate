@@ -241,6 +241,12 @@ body{
   object-fit: cover;
 }
 
+#imggg{
+  object-fit: cover;
+  width: 120px;
+  height: 120px;
+  border-radius: 100px;
 
+}
 
 

@@ -111,33 +111,33 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body" style="background-color: rgb(231, 253, 246);">
-            <form class="col d-flex flex-wrap" method="post">
+            <form class="col d-flex flex-wrap" action="registrar.php" method="post">
               <div class="mb-1 col-12">
-                <label for="nombres" class="form-label">Nombres</label>
+                <label for="celular" class="form-label">celular</label>
                 <input 
                   type="text"
-                  id="nombres"
-                  name="nombres"
+                  id="celular"
+                  name="celular"
                   class="form-control"  
                 />
               </div>
 
               <div class="mb-1 col-12">
-                <label for="direccion" class="form-label">Direccion</label>
+                <label for="compañia" class="form-label">compañia</label>
                 <input 
                   type="text"
-                  id="direccion"
-                  name="direccion"
+                  id="compañia"
+                  name="compañia"
                   class="form-control"  
                 />
               </div>
 
               <div class="mb-1 col-12">
-                <label for="logros" class="form-label">Logros</label>
+                <label for="detalle" class="form-label">detalle</label>
                 <input 
                   type="text"
-                  id="logros"
-                  name="logros"
+                  id="detalle"
+                  name="detalle"
                   class="form-control"  
                  
                 />
